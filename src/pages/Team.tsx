@@ -1,8 +1,11 @@
 import PageContentWrapper from "../layouts/PageContentWrapper";
 import LandingSection from "../components/ui/LandingSection";
 import HeroBanner from "../components/ui/HeroBanner";
+import { useOutletContext } from "react-router-dom";
 
 export default function Team() {
+  const { openSignUp } = useOutletContext<{ openSignUp: () => void }>();
+
   const sections = [
     {
       title: "Lorem ipsum",
@@ -64,16 +67,12 @@ export default function Team() {
     },
   ];
 
-  function handleJoinCommunity() {
-    alert("Joining community... 🎉"); // Replace with your real logic
-  }
-
   return (
     <>
       <HeroBanner
         title="Team"
         ctaText="Join the Community"
-        ctaOnClick={handleJoinCommunity}
+        ctaOnClick={openSignUp}
       />
       <PageContentWrapper>
         {sections.map((section, i) => (

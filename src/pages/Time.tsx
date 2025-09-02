@@ -1,8 +1,11 @@
 import PageContentWrapper from "../layouts/PageContentWrapper";
 import LandingSection from "../components/ui/LandingSection";
 import HeroBanner from "../components/ui/HeroBanner";
+import { useOutletContext } from "react-router-dom";
 
 export default function Time() {
+  const { openSignUp } = useOutletContext<{ openSignUp: () => void }>();
+
   const sections = [
     {
       title: "Lorem ipsum",
@@ -62,16 +65,12 @@ export default function Time() {
     },
   ];
 
-  function handleJoinCommunity() {
-    alert("open modal - form"); // to-do - nav to modal
-  }
-
   return (
     <>
       <HeroBanner
         title="Time"
         ctaText="Join the Community"
-        ctaOnClick={handleJoinCommunity}
+        ctaOnClick={openSignUp}
       />
       <PageContentWrapper>
         {sections.map((section, i) => (

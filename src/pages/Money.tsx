@@ -4,6 +4,7 @@ import HeroBanner from "../components/ui/HeroBanner";
 import { useOutletContext } from "react-router-dom";
 
 export default function Money() {
+  // Get the function passed from the parent Layout via Outlet context,
   const { openSignUp } = useOutletContext<{ openSignUp: () => void }>();
   const sections = [
     {

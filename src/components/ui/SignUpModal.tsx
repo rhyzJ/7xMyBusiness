@@ -45,12 +45,23 @@ export default function SignUpModal({ isOpen, onClose }: SignUpModalProps) {
     >
       <Fade in={isOpen}>
         <Box sx={style}>
-          <Typography id="transition-modal-title" variant="h6" component="h2">
-            Join the Community
+          <Typography
+            id="transition-modal-title"
+            variant="h6"
+            component="h2"
+            sx={{
+              fontWeight: "bold", // make it bolder
+              fontFamily: "Inter, sans-serif", // change font
+              textAlign: "center", // center the text
+              fontSize: "1.5rem", // adjust size if you want
+              color: "#2C3E50",
+              marginBottom: 3,
+            }}
+          >
+            Sign up for <span style={{ color: "#27A65D" }}>FREE </span>
+            full access
           </Typography>
-          <Typography id="transition-modal-description" sx={{ mt: 2 }}>
-            Fill out your details to join!
-          </Typography>
+
           <SignUpForm />
         </Box>
       </Fade>

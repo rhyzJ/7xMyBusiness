@@ -3,10 +3,16 @@ import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { useState, useMemo, useEffect } from "react";
 import CTA from "../buttons/CTA";
 
+interface ImageSlide {
+  image: string;
+  location: string;
+}
+
 function FooterHero() {
   const [currentIndex, setCurrentIndex] = useState(0); //track current bg img
+  
 
-  const nzImages = useMemo(
+  const nzImages: ImageSlide[] = useMemo(
     //improve perfermance to reduce re-renders for scalability
     () => [
       {

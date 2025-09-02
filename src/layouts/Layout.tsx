@@ -36,6 +36,7 @@ export default function Layout() {
       </header>
 
       <main className="flex-grow w-full mx-auto sm:p-0">
+        {/* outlet passes the function down to child routes so they can open the sign-up modal without managing their own state **** new concept */}
         <Outlet context={{ openSignUp: () => setIsSignUpOpen(true) }} />
       </main>
 
