@@ -1,13 +1,14 @@
 import React from "react";
 
 interface CTAProps {
-  onClick: () => void;
+  onClick: () => void; //to-do = link to modal
   children: React.ReactNode;
   className?: string;
 }
 
 const CTA = ({ onClick, children, className = "" }: CTAProps) => {
   return (
+    //buttons c+p from https://buttons.ibelick.com/ (rapid prototype, swap with custom later)
     <button
       type="button"
       onClick={onClick}

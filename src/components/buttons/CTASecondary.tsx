@@ -1,19 +1,20 @@
 interface CTASecondaryProps {
-  //   onClick: () => void;
+  onClick?: () => void; //currently optional till component is ready to trigger nav
   children: React.ReactNode;
   className?: string;
 }
 
 const CTASecondary = ({
-  //   onClick,
+  onClick,
   children,
   className = "",
 }: CTASecondaryProps) => {
   return (
+    //buttons c+p from https://buttons.ibelick.com/ (rapid prototype, swap with custom later)
     <button
       type="button"
-      //   onClick={onClick}
-      className={`group relative inline-flex h-10 items-center justify-center overflow-hidden rounded-full border-3 border-[#2C3E50] bg-transparent px-4 font-medium text-[#2C3E50] hover:drop-shadow-lg hover:bg-[#2C3E50] hover:text-white ${className}`}
+      onClick={onClick}
+      className={`group relative inline-flex h-10 items-center justify-center overflow-hidden rounded-full border-2 border-[#2C3E50] bg-transparent px-4 font-medium text-[#2C3E50] hover:drop-shadow-lg hover:bg-[#2C3E50] hover:text-white ${className}`}
     >
       <span>{children}</span>
       <div className="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-1 group-hover:opacity-100 ">
@@ -38,6 +39,3 @@ const CTASecondary = ({
 };
 
 export default CTASecondary;
-
-
-

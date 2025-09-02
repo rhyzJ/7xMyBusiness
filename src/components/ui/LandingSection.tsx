@@ -1,5 +1,7 @@
 import CTASecondary from "../buttons/CTASecondary";
 
+// flexible enough to handle either an image or video
+// reverse optional allows layout flipping for visual variety, as per design
 interface LandingSectionProps {
   title: string;
   description: string;
@@ -17,13 +19,14 @@ export default function LandingSection({
   imageSrc,
   imageAlt,
   video,
-  reverse = false,
+  reverse = false, //always start false
 }: LandingSectionProps) {
   return (
     <section
       className={`flex flex-col md:flex-row items-center gap-6 p-6 mt-10 rounded-lg shadow-lg bg-gray-100
       ${reverse ? "md:flex-row-reverse" : ""}`}
     >
+      {/* logic for image vs video, check for video, else apply img and styling */}
       {video
         ? video
         : imageSrc && (

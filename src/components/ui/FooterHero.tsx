@@ -4,23 +4,28 @@ import { useState, useMemo, useEffect } from "react";
 import CTA from "../buttons/CTA";
 
 function FooterHero() {
-  const [currentIndex, setCurrentIndex] = useState(0);
+  const [currentIndex, setCurrentIndex] = useState(0); //track current bg img
 
   const nzImages = useMemo(
+    //improve perfermance to reduce re-renders for scalability
     () => [
       {
-        image: "src/assets/images/nzImages/landscape1.jpg",
-        location: "landscape1",
+        image: "src/assets/images/nzImages/mountCook.jpg",
+        location: "Mount Cook, New Zealand",
       },
       {
-        image: "src/assets/images/nzImages/landscape2.jpg",
-        location: "Lake Taupō, nz",
+        image: "src/assets/images/nzImages/lakeTaupo.jpg",
+        location: "Lake Taupō, New Zealand",
+      },
+      {
+        image: "src/assets/images/nzImages/lakeMatheson.jpg",
+        location: "Lake Mathesons, New Zealand",
       },
     ],
     []
   );
 
-  // Image slider
+  // image slider
   useEffect(() => {
     const interval = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % nzImages.length);
@@ -44,7 +49,7 @@ function FooterHero() {
           Join for free to unlock all resources
         </h2>
         <CTA
-          onClick={() => alert("clicked!")}
+          onClick={() => alert("sign up modal")} //to do - signup/form modal (waiting on hubspot)
           className="bg-[#27A65D]  transition rounded-full px-8 cursor-pointer py-3 font-semibold mt-4"
         >
           default cta

@@ -2,7 +2,6 @@ import CTA from "../buttons/CTA";
 
 interface HeroBannerProps {
   title: string;
-  subtitle: string;
   ctaText: string;
   ctaOnClick: () => void;
 }
@@ -22,6 +21,3 @@ function HeroBanner({ title, ctaText, ctaOnClick }: HeroBannerProps) {
 }
 
 export default HeroBanner;
-
-
-rfce

@@ -1,4 +1,4 @@
-import LandingLayout from "../layouts/LandingLayout";
+import PageContentWrapper from "../layouts/PageContentWrapper";
 import LandingSection from "../components/ui/LandingSection";
 import HeroBanner from "../components/ui/HeroBanner";
 
@@ -25,7 +25,7 @@ export default function Money() {
     {
       title: "Lorem ipsum",
       description:
-        "Another section with description text and button, plus an image on the right side.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       buttonText: "Download",
       imageSrc: "src/assets/images/placeholders/business-placeholder.jpeg",
       imageAlt: "Office setup",
@@ -35,7 +35,7 @@ export default function Money() {
       title: "Lorem ipsum",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      buttonText: "Watch Now",
+      buttonText: "Visit Channel",
       video: (
         <iframe
           width="560"
@@ -52,7 +52,7 @@ export default function Money() {
     {
       title: "Lorem ipsum",
       description:
-        "Another section with description text and button, plus an image on the right side.",
+        "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       buttonText: "Download",
       imageSrc: "src/assets/images/placeholders/business-placeholder.jpeg",
       imageAlt: "Office setup",
@@ -68,15 +68,14 @@ export default function Money() {
     <>
       <HeroBanner
         title="Money"
-        subtitle="Rule #3 - Twice the Results in Half the time."
         ctaText="Join the Community"
         ctaOnClick={handleJoinCommunity}
       />
-      <LandingLayout>
+      <PageContentWrapper>
         {sections.map((section, i) => (
           <LandingSection key={i} {...section} />
         ))}
-      </LandingLayout>
+      </PageContentWrapper>
     </>
   );
 }

@@ -6,13 +6,13 @@ import DefaultFooter from "../components/ui/DefaultFooter";
 import FooterHero from "../components/ui/FooterHero";
 
 export default function Layout() {
-  const [isScrolled, setIsScrolled] = useState(false);
+  const [isScrolled, setIsScrolled] = useState(false); //check user scroll for navshadow
 
   //scroll shadow
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll); //cleanup
   }, []);
 
   return (
@@ -29,7 +29,6 @@ export default function Layout() {
             alt="7x Logo"
             className="h-18 w-auto "
           />
-
           <DesktopNav />
           <MobileNav />
         </div>
