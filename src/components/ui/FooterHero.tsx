@@ -34,33 +34,33 @@ function FooterHero() {
   }, [nzImages.length]);
   return (
     <section
-      className="relative bg-cover bg-center py-16 mt-10 text-white flex flex-col items-center justify-center transition-all duration-1000"
+      className="relative bg-cover bg-center py-12 sm:py-16 mt-10 text-white flex flex-col items-center justify-center transition-all duration-1000"
       style={{ backgroundImage: `url(${nzImages[currentIndex].image})` }}
     >
+      {/* overlay tint */}
       <div className="absolute inset-0 bg-black/40"></div>
 
-      <div className="relative z-10 max-w-4xl text-center px-4">
+      <div className="relative z-10 max-w-full sm:max-w-4xl text-center px-4">
         <h2
-          className="text-3xl font-bold mb-4"
+          className="text-2xl sm:text-3xl font-bold mb-4"
           style={{ textShadow: "2px 2px 8px rgba(0,0,0,0.8)" }}
         >
           Want more?
           <br />
           Join for free to unlock all resources
         </h2>
+
         <CTA
-          onClick={() => alert("sign up modal")} //to do - signup/form modal (waiting on hubspot)
-          className="bg-[#27A65D]  transition rounded-full px-8 cursor-pointer py-3 font-semibold mt-4"
+          onClick={() => alert("sign up modal")}
+          className="bg-[#27A65D] transition rounded-full px-6 sm:px-8 py-2 sm:py-3 font-semibold mt-4 text-sm sm:text-base"
         >
           default cta
         </CTA>
       </div>
 
-      <div className="absolute bottom-4 left-4 flex items-center space-x-2 z-10">
+      <div className="absolute bottom-4 left-4 flex items-center space-x-2 z-10 text-xs sm:text-sm">
         <FontAwesomeIcon icon={faLocationDot} style={{ color: "white" }} />
-        <span className="text-sm font-medium rounded-full py-1">
-          {nzImages[currentIndex].location}
-        </span>
+        <span className="font-medium">{nzImages[currentIndex].location}</span>
       </div>
     </section>
   );

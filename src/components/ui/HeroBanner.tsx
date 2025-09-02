@@ -3,7 +3,7 @@ import CTA from "../buttons/CTA";
 interface HeroBannerProps {
   title: string;
   ctaText: string;
-  ctaOnClick: () => void;
+  ctaOnClick: () => void; //will open modal
 }
 
 function HeroBanner({ title, ctaText, ctaOnClick }: HeroBannerProps) {

@@ -10,15 +10,17 @@ export default function Team() {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       buttonText: "Visit Channel",
       video: (
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/MN7yfV4UuCI?si=j71GglJNnnou2HYO"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+        <div className="w-full max-w-full aspect-video">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/MN7yfV4UuCI?si=j71GglJNnnou2HYO"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
       ),
       reverse: false,
     },
@@ -37,15 +39,17 @@ export default function Team() {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       buttonText: "Visit Channel",
       video: (
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/MN7yfV4UuCI?si=j71GglJNnnou2HYO"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+        <div className="w-full max-w-full aspect-video">
+          <iframe
+            width="560"
+            height="315"
+            src="https://www.youtube.com/embed/MN7yfV4UuCI?si=j71GglJNnnou2HYO"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
       ),
       reverse: false,
     },

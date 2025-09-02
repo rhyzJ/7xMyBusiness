@@ -1,8 +1,10 @@
 import PageContentWrapper from "../layouts/PageContentWrapper";
 import LandingSection from "../components/ui/LandingSection";
 import HeroBanner from "../components/ui/HeroBanner";
+import { useOutletContext } from "react-router-dom";
 
 export default function Money() {
+  const { openSignUp } = useOutletContext<{ openSignUp: () => void }>();
   const sections = [
     {
       title: "Lorem ipsum",
@@ -10,15 +12,16 @@ export default function Money() {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       buttonText: "Watch Now",
       video: (
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/eHJnEHyyN1Y?si=q7NvAU6wSmBg2-M2"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+        <div className="w-full max-w-full aspect-video">
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/eHJnEHyyN1Y?si=q7NvAU6wSmBg2-M2"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
       ),
       reverse: false,
     },
@@ -37,15 +40,16 @@ export default function Money() {
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
       buttonText: "Visit Channel",
       video: (
-        <iframe
-          width="560"
-          height="315"
-          src="https://www.youtube.com/embed/eHJnEHyyN1Y?si=q7NvAU6wSmBg2-M2"
-          title="YouTube video player"
-          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-          referrerPolicy="strict-origin-when-cross-origin"
-          allowFullScreen
-        ></iframe>
+        <div className="w-full max-w-full aspect-video">
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/eHJnEHyyN1Y?si=q7NvAU6wSmBg2-M2"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
       ),
       reverse: false,
     },
@@ -60,16 +64,12 @@ export default function Money() {
     },
   ];
 
-  function handleJoinCommunity() {
-    alert("Joining community... 🎉"); // modal will open to get details
-  }
-
   return (
     <>
       <HeroBanner
         title="Money"
         ctaText="Join the Community"
-        ctaOnClick={handleJoinCommunity}
+        ctaOnClick={openSignUp}
       />
       <PageContentWrapper>
         {sections.map((section, i) => (
