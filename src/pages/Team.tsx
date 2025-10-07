@@ -11,7 +11,8 @@ export default function Team() {
       title: "Lorem ipsum",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      buttonText: "Visit Channel",
+      buttonText1: "Watch Now",
+      buttonText2: "Download Free Resource",
       video: (
         <div className="w-full max-w-full aspect-video">
           <iframe
@@ -31,7 +32,7 @@ export default function Team() {
       title: "Lorem ipsum",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      buttonText: "Download",
+      buttonText1: "Download Free Resource",
       imageSrc: "src/assets/images/placeholders/business-placeholder.jpeg",
       imageAlt: "Office setup",
       reverse: true,
@@ -40,7 +41,8 @@ export default function Team() {
       title: "Lorem ipsum",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      buttonText: "Visit Channel",
+      buttonText1: "Watch Now",
+      buttonText2: "Download Free Resource",
       video: (
         <div className="w-full max-w-full aspect-video">
           <iframe
@@ -60,7 +62,7 @@ export default function Team() {
       title: "Lorem ipsum",
       description:
         "Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.",
-      buttonText: "Download",
+      buttonText1: "Download Free Resource",
       imageSrc: "src/assets/images/placeholders/business-placeholder.jpeg",
       imageAlt: "Office setup",
       reverse: true,

@@ -5,7 +5,8 @@ import CTASecondary from "../buttons/CTASecondary";
 interface LandingSectionProps {
   title: string;
   description: string;
-  buttonText: string;
+  buttonText1: string;
+  buttonText2: string;
   imageSrc?: string;
   imageAlt?: string;
   video?: React.ReactNode;
@@ -15,7 +16,8 @@ interface LandingSectionProps {
 export default function LandingSection({
   title,
   description,
-  buttonText,
+  buttonText1,
+  buttonText2,
   imageSrc,
   imageAlt,
   video,
@@ -39,7 +41,16 @@ export default function LandingSection({
       <div className="w-full md:w-1/2">
         <h3 className="text-xl font-semibold mb-2">{title}</h3>
         <p className="mb-4 text-gray-700">{description}</p>
-        <CTASecondary className="mx-auto">{buttonText}</CTASecondary>
+        <div className="flex flex-col items-center justify-start gap-3">
+          <CTASecondary className="w-auto md:w-auto">
+            {buttonText1}
+          </CTASecondary>
+          {buttonText2 ? (
+            <CTASecondary className="w-full md:w-auto">
+              {buttonText2}
+            </CTASecondary>
+          ) : null}
+        </div>
       </div>
     </section>
   );

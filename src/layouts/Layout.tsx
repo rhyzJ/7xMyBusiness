@@ -6,15 +6,19 @@ import DefaultFooter from "../components/ui/DefaultFooter";
 import FooterHero from "../components/ui/FooterHero";
 import SignUpModal from "../components/ui/SignUpModal";
 
+// layout component = provides the main page structure with header, navigation, footer,
+// and shared state for the sign-up modal. wraps child routes using outlet.
 export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false); //check user scroll for navshadow
-  const [isSignUpOpen, setIsSignUpOpen] = useState(false); //check user scroll for navshadow
+  const [isSignUpOpen, setIsSignUpOpen] = useState(false); //track if sign-up modal is open
 
   //scroll shadow
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll); //cleanup
+
+    //cleaning
+    return () => window.removeEventListener("scroll", handleScroll); //remove event listeners
   }, []);
 
   return (
@@ -36,7 +40,7 @@ export default function Layout() {
       </header>
 
       <main className="flex-grow w-full mx-auto sm:p-0">
-        {/* outlet passes the function down to child routes so they can open the sign-up modal without managing their own state **** new concept */}
+        {/* outlet passes the function down to child routes so they can open the sign-up modal without managing their own state **** new concept with react-router-dom */}
         <Outlet context={{ openSignUp: () => setIsSignUpOpen(true) }} />
       </main>
 
@@ -44,6 +48,7 @@ export default function Layout() {
         isOpen={isSignUpOpen}
         onClose={() => setIsSignUpOpen(false)}
       />
+
       <FooterHero />
       <DefaultFooter />
     </div>
