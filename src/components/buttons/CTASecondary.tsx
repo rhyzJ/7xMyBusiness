@@ -1,23 +1,35 @@
 interface CTASecondaryProps {
-  onClick?: () => void; //currently optional till component is ready to trigger nav
+  onClick?: () => void;
   children: React.ReactNode;
   className?: string;
+  variant?: "light" | "dark"; // NEW: control styling based on background
 }
 
 const CTASecondary = ({
   onClick,
   children,
   className = "",
+  variant = "light", // default to light (dark text on light bg)
 }: CTASecondaryProps) => {
+  const isDark = variant === "dark";
+
   return (
-    //buttons c+p from https://buttons.ibelick.com/ (rapid prototype, swap with custom later)
     <button
       type="button"
       onClick={onClick}
-      className={`group relative inline-flex h-10 items-center justify-center overflow-hidden rounded-full border-2 border-[#2C3E50] bg-transparent px-4 font-medium text-[#2C3E50] hover:drop-shadow-lg hover:bg-[#2C3E50] hover:text-white ${className}`}
+      className={`
+        group relative inline-flex h-10 items-center justify-center overflow-hidden 
+        rounded-full border-2 font-medium transition-all duration-200
+        ${
+          isDark
+            ? "border-white/30 bg-transparent text-white hover:bg-white hover:text-[#2C3E50] hover:border-white"
+            : "border-[#2C3E50] bg-transparent text-[#2C3E50] hover:bg-[#2C3E50] hover:text-white"
+        }
+        px-4 hover:drop-shadow-lg ${className}
+      `}
     >
       <span>{children}</span>
-      <div className="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-1 group-hover:opacity-100 ">
+      <div className="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-1 group-hover:opacity-100">
         <svg
           width="15"
           height="15"

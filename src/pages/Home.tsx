@@ -1,5 +1,5 @@
 import PageContentWrapper from "../layouts/PageContentWrapper";
-import LandingSection from "../components/ui/LandingSection";
+import ContentSection from "../components/ui/ContentSection";
 import HeroBanner from "../components/ui/HeroBanner";
 import { useOutletContext } from "react-router-dom";
 
@@ -63,6 +63,7 @@ export default function Home() {
         </div>
       ),
       reverse: false,
+      
     },
     {
       title: "Lorem ipsum",
@@ -87,7 +88,6 @@ export default function Home() {
 
   return (
     <>
-      {/* blue top banner */}
       <HeroBanner
         title="Money Time Team"
         ctaText="Join the Community"
@@ -113,7 +113,7 @@ export default function Home() {
         </h3>
 
         {sections.map((section, i) => (
-          <LandingSection key={i} {...section} />
+          <ContentSection key={i} {...section} />
         ))}
       </PageContentWrapper>
     </>

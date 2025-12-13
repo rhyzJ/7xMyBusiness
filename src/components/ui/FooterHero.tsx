@@ -1,6 +1,6 @@
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
-import { useState, useMemo, useEffect } from "react";
+import { useState, useEffect } from "react";
 import CTA from "../buttons/CTA";
 
 interface ImageSlide {
@@ -11,24 +11,20 @@ interface ImageSlide {
 function FooterHero() {
   const [currentIndex, setCurrentIndex] = useState(0); //track current bg img
 
-  const nzImages: ImageSlide[] = useMemo(
-    //memoized (trial) to improve performance to reduce recreation on render for scalability for performance optimisation, only on mount
-    () => [
-      {
-        image: "src/assets/images/nzImages/mountCook.jpg",
-        location: "Mount Cook, New Zealand",
-      },
-      {
-        image: "src/assets/images/nzImages/lakeTaupo.jpg",
-        location: "Lake Taupō, New Zealand",
-      },
-      {
-        image: "src/assets/images/nzImages/lakeMatheson.jpg",
-        location: "Lake Mathesons, New Zealand",
-      },
-    ],
-    []
-  );
+  const nzImages: ImageSlide[] = [
+    {
+      image: "src/assets/images/nzImages/mountCook.jpg",
+      location: "Mount Cook, New Zealand",
+    },
+    {
+      image: "src/assets/images/nzImages/lakeTaupo.jpg",
+      location: "Lake Taupō, New Zealand",
+    },
+    {
+      image: "src/assets/images/nzImages/lakeMatheson.jpg",
+      location: "Lake Mathesons, New Zealand",
+    },
+  ];
 
   // image slider - change every 5 sec
   useEffect(() => {
@@ -68,7 +64,9 @@ function FooterHero() {
       {/* display current location of image from array*/}
       <div className="absolute bottom-4 left-4 flex items-center space-x-2 z-10 text-xs sm:text-sm">
         <FontAwesomeIcon icon={faLocationDot} style={{ color: "white" }} />
-        <span className="font-medium text-white text-shadow-gray-950/50 text-shadow-lg">{nzImages[currentIndex].location}</span>
+        <span className="font-medium text-white text-shadow-gray-950/50 text-shadow-lg">
+          {nzImages[currentIndex].location}
+        </span>
       </div>
     </section>
   );
