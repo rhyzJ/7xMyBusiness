@@ -2,6 +2,9 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faLocationDot } from "@fortawesome/free-solid-svg-icons";
 import { useState, useEffect } from "react";
 import CTA from "../buttons/CTA";
+import mountCook from "../../assets/images/nzImages/mountCook.jpg";
+import lakeTaupo from "../../assets/images/nzImages/lakeTaupo.jpg";
+import lakeMatheson from "../../assets/images/nzImages/lakeMatheson.jpg";
 
 interface ImageSlide {
   image: string;
@@ -17,15 +20,15 @@ function FooterHero({ openSignUp }: FooterHeroProps) {
 
   const nzImages: ImageSlide[] = [
     {
-      image: "src/assets/images/nzImages/mountCook.jpg",
+      image: mountCook,
       location: "Mount Cook, New Zealand",
     },
     {
-      image: "src/assets/images/nzImages/lakeTaupo.jpg",
+      image: lakeTaupo,
       location: "Lake Taupō, New Zealand",
     },
     {
-      image: "src/assets/images/nzImages/lakeMatheson.jpg",
+      image: lakeMatheson,
       location: "Lake Mathesons, New Zealand",
     },
   ];
