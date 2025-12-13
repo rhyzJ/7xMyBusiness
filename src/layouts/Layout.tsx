@@ -1,4 +1,4 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import MobileNav from "../components/ui/MobileNav";
 import DefaultFooter from "../components/ui/DefaultFooter";
@@ -9,7 +9,7 @@ import logo from "../assets/logos/7xlogo-white.png";
 export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isSignUpOpen, setIsSignUpOpen] = useState(false);
-
+  const navigate = useNavigate();
   useEffect(() => {
     const handleScroll = () => setIsScrolled(window.scrollY > 50);
     window.addEventListener("scroll", handleScroll);
@@ -28,7 +28,7 @@ export default function Layout() {
             src={logo}
             alt="7x Logo"
             className="h-24 w-auto cursor-pointer"
-            onClick={() => (window.location.href = "/")}
+            onClick={() => navigate("/")}
           />
           <MobileNav openSignUp={() => setIsSignUpOpen(true)} />
         </div>
