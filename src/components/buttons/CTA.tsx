@@ -8,13 +8,11 @@ interface CTAProps {
 
 const CTA = ({ onClick, children, className = "" }: CTAProps) => {
   return (
-    //buttons from https://buttons.ibelick.com/ (rapid prototyping)
-    // TODO: swap with custom/icon later once design finalised
 
     <button
       type="button"
       onClick={onClick}
-      className={`group relative inline-flex h-12 items-center justify-center overflow-hidden rounded-full bg-[#27A65D] px-6 font-medium text-white hover:drop-shadow-lg ${className}`}
+      className={`group relative inline-flex h-12 items-center justify-center overflow-hidden cursor-pointer rounded-full bg-[#27A65D] px-6 font-medium text-white hover:drop-shadow-lg ${className}`}
     >
       <span>{children}</span>
       <div className="w-0 translate-x-[100%] pl-0 opacity-0 transition-all duration-200 group-hover:w-5 group-hover:translate-x-0 group-hover:pl-1 group-hover:opacity-100 ">

@@ -2,14 +2,14 @@ interface CTASecondaryProps {
   onClick?: () => void;
   children: React.ReactNode;
   className?: string;
-  variant?: "light" | "dark"; // NEW: control styling based on background
+  variant?: "light" | "dark";
 }
 
 const CTASecondary = ({
   onClick,
   children,
   className = "",
-  variant = "light", // default to light (dark text on light bg)
+  variant = "light",
 }: CTASecondaryProps) => {
   const isDark = variant === "dark";
 
@@ -19,12 +19,8 @@ const CTASecondary = ({
       onClick={onClick}
       className={`
         group relative inline-flex h-10 items-center justify-center overflow-hidden 
-        rounded-full border-2 font-medium transition-all duration-200
-        ${
-          isDark
-            ? "border-white/30 bg-transparent text-white hover:bg-white hover:text-[#2C3E50] hover:border-white"
-            : "border-[#2C3E50] bg-transparent text-[#2C3E50] hover:bg-[#2C3E50] hover:text-white"
-        }
+        rounded-full font-medium transition-all duration-200 cursor-pointer
+        ${isDark ? " text-white bg-[#27A65D] " : "  bg-[#2C3E50] text-white"}
         px-4 hover:drop-shadow-lg ${className}
       `}
     >

@@ -97,7 +97,7 @@ function MobileNav() {
               ))}
             </nav>
 
-            <div className="absolute bottom-8 left-1/2 -translate-x-1/2 w-16 h-1 bg-gradient-to-r from-transparent via-[#27A65D] to-transparent opacity-50" />
+            <div className="mt-15 mx-auto w-24 h-[2px] bg-gradient-to-r from-transparent via-[#27A65D] to-transparent opacity-60" />
           </div>
         </>
       )}

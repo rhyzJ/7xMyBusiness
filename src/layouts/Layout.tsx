@@ -17,7 +17,7 @@ export default function Layout() {
   }, []);
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col bg-[#2C3E50]">
       <header
         className={`bg-[#2C3E50] px-4 sm:px-6 lg:px-10 sticky top-0 z-50 transition-shadow duration-300 ease-in-out ${
           isScrolled ? "shadow-2xl" : ""
@@ -28,7 +28,7 @@ export default function Layout() {
           <MobileNav />
         </div>
       </header>
-      <main className="flex-grow w-full mx-auto sm:p-0">
+      <main className="flex-grow w-full mx-auto sm:p-0 bg-gradient-to-br from-[#FFFFFF] via-[#F5F5F5] to-[#FFFFFF]">
         <Outlet context={{ openSignUp: () => setIsSignUpOpen(true) }} />
       </main>
 

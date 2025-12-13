@@ -1,16 +1,16 @@
 import CTASecondary from "../buttons/CTASecondary";
 
-type Variant = "light" | "dark";
-
-interface ContentSectionProps {
+export interface ContentSectionProps {
   title: string;
   description: string;
-  buttonText: string;
+  buttonText?: string;
   imageSrc?: string;
   imageAlt?: string;
+  buttonLink?: string;
   video?: React.ReactNode;
   reverse?: boolean;
-  variant?: Variant; // NEW: control styling
+  variant?: "light" | "dark";
+  tagline?: string;
 }
 
 export default function ContentSection({
@@ -19,47 +19,38 @@ export default function ContentSection({
   buttonText,
   imageSrc,
   imageAlt,
+  buttonLink,
   video,
   reverse = false,
-  variant = "light", // default to light
+  variant,
+  tagline,
 }: ContentSectionProps) {
   const isDark = variant === "dark";
 
   return (
-    <section className="w-full px-4 sm:px-6 lg:px-10 py-10">
+    <section className="w-full px-4 sm:px-6 lg:px-10 py-6 sm:py-10">
       <div
         className={`
-          relative flex flex-col md:flex-row items-stretch gap-8
+          relative flex flex-col md:flex-row items-stretch gap-4 md:gap-6
           rounded-2xl overflow-hidden
-          shadow-[0_14px_35px_rgba(15,23,42,0.12)]
-          border ${isDark ? "border-white/10" : "border-slate-100"}
+          shadow-xl
           ${reverse ? "md:flex-row-reverse" : ""}
           ${
             isDark
               ? "bg-gradient-to-br from-[#2C3E50] via-[#34495E] to-[#2C3E50] text-white"
-              : "bg-gray-100 text-red-700"
+              : "bg-gray-50 text-slate-800"
           }
         `}
       >
-        {/* Soft accent only on dark variant to avoid aggression */}
+        {/* Soft accent only on dark variant */}
         {isDark && (
           <div className="pointer-events-none absolute inset-0 opacity-10">
             <div className="absolute -top-20 -right-20 w-64 h-64 bg-gradient-to-bl from-[#27A65D] via-transparent to-transparent rotate-12" />
           </div>
         )}
 
-        {/* Media */}
-        <div className="relative w-full md:w-1/2 min-h-[220px] md:min-h-[260px] overflow-hidden">
-          <div
-            className={`
-              h-full w-full overflow-hidden
-              ${
-                reverse
-                  ? "rounded-2xl md:rounded-r-2xl md:rounded-l-none"
-                  : "rounded-2xl md:rounded-l-2xl md:rounded-r-none"
-              }
-            `}
-          >
+        <div className="relative w-full md:w-1/2 min-h-[180px] md:min-h-[260px] overflow-hidden">
+          <div className="h-full w-full overflow-hidden">
             {video ? (
               <div className="h-full w-full">{video}</div>
             ) : (
@@ -74,28 +65,41 @@ export default function ContentSection({
           </div>
         </div>
 
-        {/* Content */}
-        <div className="relative w-full md:w-1/2 px-5 sm:px-8 py-6 sm:py-8 flex flex-col justify-center">
+        <div className="relative w-full md:w-1/2 px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 flex flex-col justify-center">
           <h3
-            className={`text-2xl sm:text-3xl font-semibold tracking-tight mb-3 ${
+            className={`text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight mb-2 sm:mb-3 ${
               isDark ? "text-white" : "text-slate-700"
             }`}
           >
             {title}
           </h3>
+
           <p
-            className={`text-sm sm:text-base md:text-lg leading-relaxed mb-5 ${
+            className={`text-sm sm:text-base md:text-base leading-relaxed mb-4 sm:mb-5 ${
               isDark ? "text-[#E8E8E8]" : "text-slate-600"
             }`}
           >
             {description}
           </p>
-          <CTASecondary
-            className="inline-flex"
-            variant={isDark ? "dark" : "light"}
-          >
-            {buttonText}
-          </CTASecondary>{" "}
+
+          {/* optional bolded tagline */}
+          {tagline && (
+            <p className={`text-sm sm:text-base md:text-base leading-relaxed font-senibold mb-4 sm:mb-5 ${
+              isDark ? "text-[#E8E8E8]" : "text-slate-600"
+            }`}>
+              {tagline}
+            </p>
+          )}
+
+          {buttonText && (
+            <CTASecondary
+              className="inline-flex"
+              variant={isDark ? "dark" : "light"}
+              onClick={() => window.open(buttonLink, "_blank")}
+            >
+              {buttonText}
+            </CTASecondary>
+          )}
         </div>
       </div>
     </section>
