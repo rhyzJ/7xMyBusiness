@@ -68,7 +68,7 @@ function FooterHero() {
       {/* display current location of image from array*/}
       <div className="absolute bottom-4 left-4 flex items-center space-x-2 z-10 text-xs sm:text-sm">
         <FontAwesomeIcon icon={faLocationDot} style={{ color: "white" }} />
-        <span className="font-medium">{nzImages[currentIndex].location}</span>
+        <span className="font-medium text-white text-shadow-gray-950/50 text-shadow-lg">{nzImages[currentIndex].location}</span>
       </div>
     </section>
   );

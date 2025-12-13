@@ -28,11 +28,11 @@ export default function Layout() {
           isScrolled ? "shadow-2xl" : ""
         }`}
       >
-        <div className="flex items-center justify-between w-full max-w-7xl mx-auto">
+        <div className="flex items-center justify-between w-full max-w-7xl mt-4 mx-auto">
           <img
             src="src/assets/logos/7xlogo-white.png"
             alt="7x Logo"
-            className="h-12 sm:h-18 w-auto"
+            className="h-40 w-auto"
           />
           <DesktopNav />
           <MobileNav />
