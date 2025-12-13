@@ -2,6 +2,7 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
+import CircularProgress from "@mui/material/CircularProgress";
 import { useEffect, useState } from "react";
 import { X } from "lucide-react";
 
@@ -25,6 +26,7 @@ interface SignUpModalProps {
 
 export default function SignUpModal({ isOpen, onClose }: SignUpModalProps) {
   const [showCloseButton, setShowCloseButton] = useState(false);
+  const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
     const script = document.createElement("script");
@@ -39,12 +41,15 @@ export default function SignUpModal({ isOpen, onClose }: SignUpModalProps) {
 
   useEffect(() => {
     if (isOpen) {
+      setIsLoading(true);
       setShowCloseButton(false);
       const timer = setTimeout(() => {
+        setIsLoading(false);
         setShowCloseButton(true);
       }, 800);
       return () => clearTimeout(timer);
     } else {
+      setIsLoading(true);
       setShowCloseButton(false);
     }
   }, [isOpen]);
@@ -75,7 +80,28 @@ export default function SignUpModal({ isOpen, onClose }: SignUpModalProps) {
             position: "relative",
           }}
         >
-          <div style={{ position: "relative", width: "100%", height: "100%" }}>
+          <div
+            style={{ position: "relative", width: "100%", minHeight: "400px" }}
+          >
+            {isLoading && (
+              <div
+                style={{
+                  position: "absolute",
+                  top: 0,
+                  left: 0,
+                  right: 0,
+                  bottom: 0,
+                  display: "flex",
+                  alignItems: "center",
+                  justifyContent: "center",
+                  backgroundColor: "white",
+                  borderRadius: "8px",
+                  zIndex: 1000,
+                }}
+              >
+                <CircularProgress sx={{ color: "#27A65D" }} />
+              </div>
+            )}
             <button
               onClick={onClose}
               style={{
@@ -120,6 +146,8 @@ export default function SignUpModal({ isOpen, onClose }: SignUpModalProps) {
                 maxWidth: "100%",
                 position: "relative",
                 zIndex: 1,
+                opacity: isLoading ? 0 : 1,
+                transition: "opacity 0.3s ease",
               }}
             />
           </div>
