@@ -24,8 +24,13 @@ export default function Layout() {
         }`}
       >
         <div className="flex items-center justify-center w-full max-w-7xl mx-auto h-20 sm:h-24">
-          <img src={logo} alt="7x Logo" className="h-24 w-auto" />
-          <MobileNav />
+          <img
+            src={logo}
+            alt="7x Logo"
+            className="h-24 w-auto cursor-pointer"
+            onClick={() => (window.location.href = "/")}
+          />
+          <MobileNav openSignUp={() => setIsSignUpOpen(true)} />
         </div>
       </header>
       <main className="flex-grow w-full mx-auto sm:p-0 bg-gradient-to-br from-[#FFFFFF] via-[#F5F5F5] to-[#FFFFFF]">
@@ -37,7 +42,7 @@ export default function Layout() {
         onClose={() => setIsSignUpOpen(false)}
       />
 
-      <FooterHero />
+      <FooterHero openSignUp={() => setIsSignUpOpen(true)} />
       <DefaultFooter />
     </div>
   );

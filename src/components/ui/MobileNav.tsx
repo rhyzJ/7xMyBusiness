@@ -1,12 +1,17 @@
-import { NavLink } from "react-router-dom";
+import { NavLink, useNavigate, useLocation } from "react-router-dom";
 import { useState, useEffect } from "react";
 import Hamburger from "hamburger-react";
 
-function MobileNav() {
-  const [isOpen, setIsOpen] = useState(false); // logical open/closed
-  const [shouldRender, setShouldRender] = useState(false); // keeps panel in DOM for exit anim
+interface MobileNavProps {
+  openSignUp: () => void;
+}
 
-  // ESC to close
+function MobileNav({ openSignUp }: MobileNavProps) {
+  const [isOpen, setIsOpen] = useState(false);
+  const [shouldRender, setShouldRender] = useState(false);
+  const navigate = useNavigate();
+  const location = useLocation();
+
   useEffect(() => {
     const handleEscape = (e: KeyboardEvent) => {
       if (e.key === "Escape" && isOpen) setIsOpen(false);
@@ -15,12 +20,11 @@ function MobileNav() {
     return () => document.removeEventListener("keydown", handleEscape);
   }, [isOpen]);
 
-  // Mount/unmount with animation
   useEffect(() => {
     if (isOpen) {
       setShouldRender(true);
     } else if (shouldRender) {
-      const timeout = setTimeout(() => setShouldRender(false), 300); // match animation duration
+      const timeout = setTimeout(() => setShouldRender(false), 300);
       return () => clearTimeout(timeout);
     }
   }, [isOpen, shouldRender]);
@@ -28,19 +32,31 @@ function MobileNav() {
   interface NavLinkItem {
     name: string;
     url: string;
+    isSignUp?: boolean;
   }
 
   const links: NavLinkItem[] = [
-    { name: "Join the 7x community", url: "/team" },
-    { name: "Book a chat with Penny", url: "/contactUs" },
-    { name: "Contact us", url: "/contactUs" },
+    { name: "Home", url: "/" },
+    { name: "Join the 7x community", url: "/", isSignUp: true },
+    { name: "Book a coffee with Penny", url: "/contact" },
+    { name: "Contact us", url: "/contact" },
   ];
 
   const closeMenu = () => setIsOpen(false);
 
+  const handleLinkClick = (link: NavLinkItem & { isSignUp?: boolean }) => {
+    closeMenu();
+    if (link.isSignUp) {
+      if (location.pathname === "/") {
+        openSignUp();
+      } else {
+        navigate("/", { state: { openSignUp: true } });
+      }
+    }
+  };
+
   return (
     <>
-      {/* Hamburger in header */}
       <div className="z-[60] absolute right-5">
         <Hamburger
           toggled={isOpen}
@@ -58,7 +74,6 @@ function MobileNav() {
 
       {shouldRender && (
         <>
-          {/* Backdrop */}
           <div
             className={`fixed inset-0 bg-black/50 backdrop-blur-sm z-40 ${
               isOpen ? "animate-fade-in" : "animate-fade-out"
@@ -66,7 +81,6 @@ function MobileNav() {
             onClick={closeMenu}
           />
 
-          {/* Sliding panel */}
           <div
             className={`fixed top-0 right-0 h-screen w-[80vw] sm:w-[65vw] md:w-[40vw] lg:w-[30vw] bg-gradient-to-br from-[#2C3E50] via-[#34495E] to-[#2C3E50] z-50 shadow-2xl overflow-hidden ${
               isOpen ? "animate-slide-in-panel" : "animate-slide-out-panel"
@@ -77,27 +91,30 @@ function MobileNav() {
             </div>
 
             <nav className="relative flex flex-col px-4 pt-20 space-y-2">
-              {links.map((link, index) => (
-                <NavLink
-                  key={link.url}
-                  to={link.url}
-                  end
-                  className={({ isActive }) =>
-                    `w-full px-6 py-4 rounded-lg text-base font-medium text-white transition-all duration-200 menu-item-anim ${
-                      isActive
-                        ? "bg-[#27A65D] shadow-lg"
-                        : "bg-white/5 hover:bg-[#27A65D]/80 hover:shadow-md"
-                    }`
-                  }
-                  style={{ animationDelay: `${index * 80}ms` }}
-                  onClick={closeMenu}
-                >
-                  {link.name}
-                </NavLink>
-              ))}
+              {links.map((link, index) =>
+                link.isSignUp ? (
+                  <button
+                    key={link.url}
+                    onClick={() => handleLinkClick(link)}
+                    className={`w-full px-6 py-4 rounded-lg text-base font-medium text-white transition-all duration-200 menu-item-anim bg-white/5 hover:bg-[#27A65D]/80 hover:shadow-md text-left`}
+                    style={{ animationDelay: `${index * 80}ms` }}
+                  >
+                    {link.name}
+                  </button>
+                ) : (
+                  <NavLink
+                    key={link.url}
+                    to={link.url}
+                    end
+                    className={`w-full px-6 py-4 rounded-lg text-base font-medium text-white transition-all duration-200 menu-item-anim ${"bg-white/5 hover:bg-[#27A65D]/80 hover:shadow-md"}`}
+                    style={{ animationDelay: `${index * 80}ms` }}
+                    onClick={closeMenu}
+                  >
+                    {link.name}
+                  </NavLink>
+                )
+              )}
             </nav>
-
-            <div className="mt-15 mx-auto w-24 h-[2px] bg-gradient-to-r from-transparent via-[#27A65D] to-transparent opacity-60" />
           </div>
         </>
       )}

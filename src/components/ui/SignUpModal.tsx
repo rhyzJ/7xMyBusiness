@@ -2,20 +2,19 @@ import Backdrop from "@mui/material/Backdrop";
 import Box from "@mui/material/Box";
 import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
-import Typography from "@mui/material/Typography";
-import SignUpForm from "./SignUpForm";
+import { useEffect } from "react";
 
 const style = {
-  position: "absolute",
+  position: "absolute" as const,
   top: "50%",
   left: "50%",
   transform: "translate(-50%, -50%)",
   width: "90vw",
-  maxWidth: 400,
+  maxWidth: 800,
   bgcolor: "background.paper",
-  borderRadius: "5px",
+  borderRadius: "8px",
   boxShadow: 24,
-  p: 4,
+  p: 0,
 };
 
 interface SignUpModalProps {
@@ -24,6 +23,17 @@ interface SignUpModalProps {
 }
 
 export default function SignUpModal({ isOpen, onClose }: SignUpModalProps) {
+  useEffect(() => {
+    const script = document.createElement("script");
+    script.src = "https://js-ap1.hsforms.net/forms/embed/442485932.js";
+    script.defer = true;
+    document.body.appendChild(script);
+
+    return () => {
+      document.body.removeChild(script);
+    };
+  }, []);
+
   return (
     <Modal
       aria-labelledby="transition-modal-title"
@@ -45,24 +55,16 @@ export default function SignUpModal({ isOpen, onClose }: SignUpModalProps) {
     >
       <Fade in={isOpen}>
         <Box sx={style}>
-          <Typography
-            id="transition-modal-title"
-            variant="h6"
-            component="h2"
-            sx={{
-              fontWeight: "bold", // make it bolder
-              fontFamily: "Inter, sans-serif", // change font
-              textAlign: "center", // center the text
-              fontSize: "1.5rem", // adjust size if you want
-              color: "#2C3E50",
-              marginBottom: 3,
+          <div
+            className="hs-form-frame"
+            data-region="ap1"
+            data-form-id="f60c868c-3a17-4655-beca-68ff677884a3"
+            data-portal-id="442485932"
+            style={{
+              width: "100%",
+              maxWidth: "100%",
             }}
-          >
-            Sign up for <span style={{ color: "#27A65D" }}>FREE </span>
-            full access
-          </Typography>
-
-          <SignUpForm />
+          />
         </Box>
       </Fade>
     </Modal>

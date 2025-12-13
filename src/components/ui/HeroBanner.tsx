@@ -1,12 +1,11 @@
 import CTA from "../buttons/CTA";
 
 interface HeroBannerProps {
-  title: string;
   ctaText: string;
-  ctaOnClick: () => void; // will open modal
+  ctaOnClick: () => void;
 }
 
-function HeroBanner({ title, ctaText, ctaOnClick }: HeroBannerProps) {
+function HeroBanner({ ctaText, ctaOnClick }: HeroBannerProps) {
   return (
     <section className="relative bg-gradient-to-br from-[#2C3E50] via-[#34495E] to-[#2C3E50] text-white overflow-hidden">
       {/* Subtle diagonal sheen instead of pulsing blobs */}
@@ -17,15 +16,15 @@ function HeroBanner({ title, ctaText, ctaOnClick }: HeroBannerProps) {
 
       <div className="relative max-w-5xl mx-auto px-4 py-16 md:py-24 flex flex-col items-center text-center">
         {/* Title with fade-in */}
-        <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold mb-6 tracking-tight leading-tight animate-fade-in-up">
-          {title}
+        <h1 className="mb-6 tracking-tight animate-fade-in-up">
+          Money Time Team
         </h1>
 
         {/* Accent line */}
         <div className="h-[2px] w-24 bg-gradient-to-r from-transparent via-[#27A65D] to-transparent mb-6 animate-fade-in" />
 
         {/* Subtitle with stagger */}
-        <p className="text-base sm:text-lg md:text-xl text-[#E8E8E8] mb-10 max-w-2xl leading-relaxed animate-fade-in-up-delayed">
+        <p className="sm:text-lg md:text-xl text-[#E8E8E8] mb-10 max-w-2xl animate-fade-in-up-delayed">
           Clarity, Strategy, Results — Rule #3: Twice the result, half the time.
         </p>
 

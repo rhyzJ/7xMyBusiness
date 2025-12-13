@@ -2,13 +2,23 @@ import PageContentWrapper from "../layouts/PageContentWrapper";
 import ContentSection from "../components/ui/ContentSection";
 import type { ContentSectionProps } from "../components/ui/ContentSection";
 import HeroBanner from "../components/ui/HeroBanner";
-import { useOutletContext } from "react-router-dom";
+import { useOutletContext, useLocation } from "react-router-dom";
+import { useEffect } from "react";
 
 export default function Home() {
   const { openSignUp } = useOutletContext<{ openSignUp: () => void }>();
+  const location = useLocation();
+
+  // Open signup modal if navigated from another page with state
+  useEffect(() => {
+    if (location.state?.openSignUp) {
+      openSignUp();
+      // Clear the state to prevent reopening on re-renders
+      window.history.replaceState({}, document.title);
+    }
+  }, [location.state, openSignUp]);
 
   const sections: ContentSectionProps[] = [
-    //1
     {
       title: "Pain, Solution, Result",
       description:
@@ -31,7 +41,6 @@ export default function Home() {
       reverse: false,
       variant: "light",
     },
-    //2
     {
       title: "Be the Generalist",
       description: `Generalist mindset for business owners - shareholder thinking, goals, planning, systems. Intentional 1% improvements drive long-term growth.`,
@@ -52,7 +61,6 @@ export default function Home() {
       reverse: true,
       variant: "dark",
     },
-    //3
     {
       title: "7x My Profit",
       description:
@@ -75,14 +83,13 @@ export default function Home() {
       reverse: false,
       variant: "light",
     },
-    //4
     {
       title: "7x My Sales",
       description:
         "Learn solution-based selling, the two sales paths (instant pain relief vs. most businesses), the 7 trust-building steps, and how storytelling creates urgency so you sell solutions, not products.",
       buttonText: "Watch Now",
       buttonLink: "https://www.youtube.com/watch?v=Ax_WzL9QkgA",
-        video: (
+      video: (
         <div className="w-full max-w-full aspect-video">
           <iframe
             className="w-full h-full"
@@ -97,7 +104,6 @@ export default function Home() {
       reverse: true,
       variant: "dark",
     },
-    //5
     {
       title: "7x My Team",
       description:
@@ -119,7 +125,6 @@ export default function Home() {
       reverse: false,
       variant: "light",
     },
-    //6
     {
       title: "7x My Time",
       description:
@@ -145,41 +150,27 @@ export default function Home() {
 
   return (
     <>
-      <HeroBanner
-        title="Money Time Team"
-        ctaText="Join the Community"
-        ctaOnClick={openSignUp}
-      />
+      <HeroBanner ctaText="Join the 7x community" ctaOnClick={openSignUp} />
 
       <PageContentWrapper>
         <div className="relative max-w-4xl mx-auto text-center mt-15 px-4">
-         
-
-          <p className="text-slate-500 text-base sm:text-lg md:text-xl font-medium mb-6 leading-relaxed animate-fade-in-up italic">
+          <p className="text-slate-500 sm:text-lg md:text-xl mb-6 animate-fade-in-up italic">
             Most business owners feel stuck trying to grow without a clear
             written plan.
           </p>
 
-          {/* Solution statement */}
-          <h2 className="text-xl sm:text-2xl md:text-3xl lg:text-3xl text-slate-800 font-normal leading-relaxed animate-fade-in-up-delayed">
-            At{" "}
-            <span className="text-[#27A65D] font-semibold">7xmybusiness.com</span>,
-            we give you simple tools and knowledge to create{" "}
-            <span className="font-semibold text-[#2C3E50]">
-              clarity and a written strategic plan
-            </span>
-            , so you can{" "}
-            <span className="font-semibold text-[#2C3E50]">
-              make a lot more money
-            </span>{" "}
-            and achieve the results you've always wanted.
+          <h2 className="text-slate-800 sm:text-3xl md:text-4xl animate-fade-in-up-delayed">
+            At <span className="text-[#27A65D]">7xmybusiness.com</span>, we give
+            you simple tools and knowledge to create clarity and a written
+            strategic plan, so you can make a lot more{" "}
+            <span className="text-[#27A65D]">money</span> and achieve the{" "}
+            <span className="text-[#27A65D]">results</span> you've always
+            wanted.
           </h2>
 
-          {/* Bottom accent line */}
           <div className="mt-15 mx-auto w-24 h-[2px] bg-gradient-to-r from-transparent via-[#27A65D] to-transparent opacity-60" />
         </div>
 
-        {/* Content sections */}
         <div className="space-y-0">
           {sections.map((section, i) => (
             <ContentSection key={i} {...section} />

@@ -66,16 +66,16 @@ export default function ContentSection({
         </div>
 
         <div className="relative w-full md:w-1/2 px-4 sm:px-6 md:px-8 py-4 sm:py-6 md:py-8 flex flex-col justify-center">
-          <h3
-            className={`text-xl sm:text-2xl md:text-3xl font-semibold tracking-tight mb-2 sm:mb-3 ${
+          <h2
+            className={`mb-2 sm:mb-3 ${
               isDark ? "text-white" : "text-slate-700"
             }`}
           >
             {title}
-          </h3>
+          </h2>
 
           <p
-            className={`text-sm sm:text-base md:text-base leading-relaxed mb-4 sm:mb-5 ${
+            className={`mb-4 sm:mb-5 ${
               isDark ? "text-[#E8E8E8]" : "text-slate-600"
             }`}
           >
@@ -84,10 +84,12 @@ export default function ContentSection({
 
           {/* optional bolded tagline */}
           {tagline && (
-            <p className={`text-sm sm:text-base md:text-base leading-relaxed font-senibold mb-4 sm:mb-5 ${
-              isDark ? "text-[#E8E8E8]" : "text-slate-600"
-            }`}>
-              {tagline}
+            <p
+              className={`mb-4 sm:mb-5 ${
+                isDark ? "text-[#E8E8E8]" : "text-slate-600"
+              }`}
+            >
+              <strong>{tagline}</strong>
             </p>
           )}
 
