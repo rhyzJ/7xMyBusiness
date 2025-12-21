@@ -25,7 +25,8 @@ function HeroBanner({ ctaText, ctaOnClick }: HeroBannerProps) {
 
         {/* Subtitle with stagger */}
         <p className="sm:text-lg md:text-xl text-[#E8E8E8] mb-10 max-w-2xl animate-fade-in-up-delayed">
-          Clarity, Strategy, Results — Rule #3: Twice the result, half the time.
+          Clarity, Alignment, Written Plan, Results — Rule #3: Twice the result,
+          half the time.
         </p>
 
         {/* CTA with animation */}
