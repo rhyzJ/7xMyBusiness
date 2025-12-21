@@ -13,22 +13,23 @@ export default function Contact() {
           Get in touch{" "}
         </h1>
 
-        <p className="text-slate-600 sm:text-lg md:text-xl mb-10 animate-fade-in-up-delayed max-w-2xl mx-auto">
-          We're here to help you grow your business. Reach out and let's start
-          the conversation.
+        <p className="text-slate-600 sm:text-lg md:text-2xl mb-10 animate-fade-in-up-delayed max-w-2xl mx-auto">
+          We're here to help you grow your business. Call or email Petrea to
+          book a coffee or a chat with <strong>Penny</strong> or just to get a
+          bit more information. Let's start a conversation.
         </p>
 
         <div className="mx-auto w-24 h-[2px] bg-gradient-to-r from-transparent via-[#27A65D] to-transparent opacity-60 mb-12" />
       </div>
 
-      <div className="max-w-3xl mx-auto px-4 pb-16 sm:pb-20">
-        <div className="grid sm:grid-cols-2 gap-6">
+      <div className="max-w-2xl mx-auto px-4 pb-16 sm:pb-20">
+        <div className="grid sm:grid-cols-2 gap-8">
           <a
             href={`mailto:${email}`}
-            className="group relative flex flex-col items-center justify-center p-8 sm:p-10 bg-white border border-slate-100 rounded-2xl shadow-[0_14px_35px_rgba(15,23,42,0.12)] hover:shadow-[0_20px_45px_rgba(15,23,42,0.18)] transition-all duration-300 hover:-translate-y-1"
+            className="group relative flex flex-col items-center justify-center p-6 sm:p-7 bg-white border border-slate-100 rounded-2xl shadow-[0_14px_35px_rgba(15,23,42,0.12)] hover:shadow-[0_20px_45px_rgba(15,23,42,0.18)] transition-all duration-300 hover:-translate-y-1"
           >
-            <div className="mb-5 p-4 bg-gradient-to-br from-[#27A65D]/10 to-[#27A65D]/5 rounded-full group-hover:scale-110 transition-transform duration-300">
-              <Mail className="w-8 h-8 text-[#27A65D]" />
+            <div className="mb-4 p-3 bg-gradient-to-br from-[#27A65D]/10 to-[#27A65D]/5 rounded-full group-hover:scale-110 transition-transform duration-300">
+              <Mail className="w-6 h-6 text-[#27A65D]" />
             </div>
 
             <h3 className="text-slate-700 mb-2">Email Petrea</h3>
@@ -42,14 +43,14 @@ export default function Contact() {
 
           <a
             href={`tel:${phoneLink}`}
-            className="group relative flex flex-col items-center justify-center p-8 sm:p-10 bg-gradient-to-br from-[#2C3E50] via-[#34495E] to-[#2C3E50] border border-white/10 rounded-2xl shadow-[0_14px_35px_rgba(15,23,42,0.12)] hover:shadow-[0_20px_45px_rgba(15,23,42,0.18)] transition-all duration-300 hover:-translate-y-1"
+            className="group relative flex flex-col items-center justify-center p-6 sm:p-7 bg-gradient-to-br from-[#2C3E50] via-[#34495E] to-[#2C3E50] border border-white/10 rounded-2xl shadow-[0_14px_35px_rgba(15,23,42,0.12)] hover:shadow-[0_20px_45px_rgba(15,23,42,0.18)] transition-all duration-300 hover:-translate-y-1"
           >
             <div className="pointer-events-none absolute inset-0 opacity-10 rounded-2xl overflow-hidden">
               <div className="absolute -top-20 -right-20 w-64 h-64 bg-gradient-to-bl from-[#27A65D] via-transparent to-transparent rotate-12" />
             </div>
 
-            <div className="relative mb-5 p-4 bg-white/10 rounded-full group-hover:scale-110 transition-transform duration-300">
-              <Phone className="w-8 h-8 text-white" />
+            <div className="relative mb-4 p-3 bg-white/10 rounded-full group-hover:scale-110 transition-transform duration-300">
+              <Phone className="w-6 h-6 text-white" />
             </div>
 
             <h3 className="relative text-white mb-2">Call Petrea</h3>

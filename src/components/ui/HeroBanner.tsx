@@ -30,12 +30,23 @@ function HeroBanner({ ctaText, ctaOnClick }: HeroBannerProps) {
         </p>
 
         {/* CTA with animation */}
-        <div className="animate-fade-in-up-delayed-2">
+        <div className="animate-fade-in-up-delayed-2 my-5">
           <CTA
             onClick={ctaOnClick}
             className="mx-auto shadow-lg hover:shadow-2xl transition-shadow duration-300"
           >
             {ctaText}
+          </CTA>
+        </div>
+        <div className="animate-fade-in-up-delayed-2">
+          {/* onclick should open contact page */}
+          <CTA
+            onClick={() => {
+              window.location.href = "/7xMyBusiness/contact";
+            }}
+            className="mx-auto shadow-lg hover:shadow-2xl transition-shadow duration-300"
+          >
+            Chat with Penny
           </CTA>
         </div>
       </div>
