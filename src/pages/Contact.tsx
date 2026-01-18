@@ -8,15 +8,18 @@ export default function Contact() {
 
   return (
     <PageContentWrapper>
-      <div className="relative max-w-4xl mx-auto text-center pt-12 sm:pt-16 md:pt-20 px-4">
+      <div className="relative  mx-auto text-center pt-12 sm:pt-16 md:pt-20 px-4">
         <h1 className="text-4xl sm:text-5xl md:text-6xl mb-6 tracking-tight text-[#2C3E50] animate-fade-in-up">
-          Get in touch{" "}
+          Get in touch
         </h1>
 
-        <p className="text-slate-600 sm:text-lg md:text-2xl mb-10 animate-fade-in-up-delayed max-w-2xl mx-auto">
+        <p className="text-slate-600 !text-xl mb-10 animate-fade-in-up-delayed max-w-2xl mx-auto">
           We're here to help you grow your business. Call or email Petrea to
-          book a coffee or a chat with <strong>Penny</strong> or just to get a
-          bit more information. Let's start a conversation.
+          book a coffee or a chat with{" "}
+          <strong className="underline">Penny</strong> or just to get a bit more
+          information. <br />
+          <br />
+          <strong className="text-[#27A65D] italic ">Let's start a conversation.</strong>
         </p>
 
         <div className="mx-auto w-24 h-[2px] bg-gradient-to-r from-transparent via-[#27A65D] to-transparent opacity-60 mb-12" />

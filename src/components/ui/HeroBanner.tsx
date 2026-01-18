@@ -1,3 +1,4 @@
+import { useState, useEffect } from "react";
 import CTA from "../buttons/CTA";
 
 interface HeroBannerProps {
@@ -6,6 +7,17 @@ interface HeroBannerProps {
 }
 
 function HeroBanner({ ctaText, ctaOnClick }: HeroBannerProps) {
+  const words = ["Money", "Time", "Team"];
+  const [activeWordIndex, setActiveWordIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setActiveWordIndex((prevIndex) => (prevIndex + 1) % words.length);
+    }, 1000); // Change word every 1 second
+
+    return () => clearInterval(interval);
+  }, [words.length]);
+
   return (
     <section className="relative bg-gradient-to-br from-[#2C3E50] via-[#34495E] to-[#2C3E50] text-white overflow-hidden">
       {/* Subtle diagonal sheen instead of pulsing blobs */}
@@ -17,7 +29,17 @@ function HeroBanner({ ctaText, ctaOnClick }: HeroBannerProps) {
       <div className="relative max-w-5xl mx-auto px-4 py-16 md:py-24 flex flex-col items-center text-center">
         {/* Title with fade-in */}
         <h1 className="mb-6 tracking-tight animate-fade-in-up">
-          Money Time Team
+          {words.map((word, index) => (
+            <span
+              key={index}
+              className={`transition-colors duration-300 ${
+                index === activeWordIndex ? "text-[#27A65D]" : "text-white"
+              }`}
+            >
+              {word}
+              {index < words.length - 1 && " "}
+            </span>
+          ))}
         </h1>
 
         {/* Accent line */}
