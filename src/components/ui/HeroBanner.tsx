@@ -1,4 +1,5 @@
 import { useState, useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import CTA from "../buttons/CTA";
 
 interface HeroBannerProps {
@@ -7,6 +8,7 @@ interface HeroBannerProps {
 }
 
 function HeroBanner({ ctaText, ctaOnClick }: HeroBannerProps) {
+  const navigate = useNavigate();
   const words = ["Money", "Time", "Team"];
   const [activeWordIndex, setActiveWordIndex] = useState(0);
 
@@ -64,7 +66,7 @@ function HeroBanner({ ctaText, ctaOnClick }: HeroBannerProps) {
           {/* onclick should open contact page */}
           <CTA
             onClick={() => {
-              window.location.href = "/7xMyBusiness/contact";
+              navigate("/contact");
             }}
             className="mx-auto shadow-lg hover:shadow-2xl transition-shadow duration-300"
           >
