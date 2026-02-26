@@ -67,4 +67,4 @@ export default tseslint.config([
   },
 ])
 ```
-# 7xMyBusiness
+# 7xYourBusiness

@@ -38,7 +38,7 @@ function MobileNav({ openSignUp }: MobileNavProps) {
   const links: NavLinkItem[] = [
     { name: "Home", url: "/" },
     { name: "Join the 7x community", url: "/", isSignUp: true },
-    { name: "Book a coffee with Penny", url: "/contact" },
+    { name: "Book a coffee with a 7x Coach", url: "/contact" },
     { name: "Contact us", url: "/contact" },
   ];
 

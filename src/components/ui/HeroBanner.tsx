@@ -70,7 +70,7 @@ function HeroBanner({ ctaText, ctaOnClick }: HeroBannerProps) {
             }}
             className="mx-auto shadow-lg hover:shadow-2xl transition-shadow duration-300"
           >
-            Chat with Penny
+            Chat with a 7x Coach
           </CTA>
         </div>
       </div>

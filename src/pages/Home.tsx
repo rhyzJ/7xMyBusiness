@@ -160,7 +160,7 @@ export default function Home() {
           </p>
 
           <h2 className="text-slate-800 sm:text-3xl md:text-4xl animate-fade-in-up-delayed">
-            At <span className="text-[#27A65D]">7xmybusiness.com</span>, we give
+            At <span className="text-[#27A65D]">7xyourbusiness.com</span>, we give
             you simple tools and knowledge to create clarity and a written
             strategic plan, so you can make a lot more{" "}
             <span className="text-[#27A65D]">money</span> and achieve the{" "}

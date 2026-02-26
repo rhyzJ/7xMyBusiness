@@ -16,7 +16,7 @@ export default function Contact() {
         <p className="text-slate-600 !text-xl mb-10 animate-fade-in-up-delayed max-w-2xl mx-auto">
           We're here to help you grow your business. Call or email Petrea to
           book a coffee or a chat with{" "}
-          <strong className="underline">Penny</strong> or just to get a bit more
+          <strong className="underline">a 7x Coach</strong> or just to get a bit more
           information. <br />
           <br />
           <strong className="text-[#27A65D] italic ">Let's start a conversation.</strong>
