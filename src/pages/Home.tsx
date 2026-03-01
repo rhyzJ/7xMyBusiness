@@ -19,38 +19,39 @@ export default function Home() {
   }, [location.state, openSignUp]);
 
   const sections: ContentSectionProps[] = [
+    // new video
     {
       title: "Pain, Solution, Result",
       description:
         "Learn the core communication framework: pain, solution, result. A simple, powerful method for marketing, selling, and explaining ideas.",
       buttonText: "Watch Now",
-      buttonLink: "https://www.youtube.com/watch?v=fKoug4W0hoQ",
+      buttonLink: "https://www.youtube.com/watch?v=AhMpvNXmvFc",
       video: (
         <div className="w-full max-w-full aspect-video">
           <iframe
             className="w-full h-full"
-            src="https://www.youtube.com/embed/fKoug4W0hoQ?si=24tQe_gfhCfNNHPE"
+            src="https://www.youtube.com/embed/AhMpvNXmvFc?si=BhprQvGhEdB9Kd15"            
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-            frameBorder="0"
           ></iframe>
         </div>
       ),
       reverse: false,
       variant: "light",
     },
+    // new video
     {
       title: "Be the Generalist",
       description: `Generalist mindset for business owners - shareholder thinking, goals, planning, systems. Intentional 1% improvements drive long-term growth.`,
       buttonText: "Watch Now",
-      buttonLink: "https://www.youtube.com/watch?v=oS-MIrLV20M",
+      buttonLink: "https://www.youtube.com/watch?v=ne2MTFLlXDs",
       video: (
         <div className="w-full max-w-full aspect-video">
           <iframe
             className="w-full h-full"
-            src="https://www.youtube.com/embed/oS-MIrLV20M?si=2NFkjWhMapNfjYYp"
+            src="https://www.youtube.com/embed/ne2MTFLlXDs?si=nfoMbaktCtbtisap"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
@@ -61,22 +62,22 @@ export default function Home() {
       reverse: true,
       variant: "dark",
     },
+    // new video
     {
-      title: "7x My Profit",
+      title: "7x Your Money",
       description:
-        "Move a business from cash → profit → investment using entrepreneurial accounting. Set profit targets, get clear on your numbers, align plans, execute, and own the outcome.",
+        "Let's talk about making more money, increasing your prices and why we never discount",
       buttonText: "Watch Now",
-      buttonLink: "https://www.youtube.com/watch?v=7crmgfCQfk4",
+      buttonLink: "https://www.youtube.com/watch?v=mDK2wW5hkN8",
       video: (
         <div className="w-full max-w-full aspect-video">
           <iframe
             className="w-full h-full"
-            src="https://www.youtube.com/embed/7crmgfCQfk4?si=ty1OoxCfudB6UEde"
+            src="https://www.youtube.com/embed/mDK2wW5hkN8?si=WI3zqhEZxoLeFbFB"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
             allowFullScreen
-            frameBorder="0"
           ></iframe>
         </div>
       ),
@@ -84,16 +85,16 @@ export default function Home() {
       variant: "light",
     },
     {
-      title: "7x My Sales",
+      title: "7x Your Sales",
       description:
         "Learn solution-based selling, the two sales paths (instant pain relief vs. most businesses), the 7 trust-building steps, and how storytelling creates urgency so you sell solutions, not products.",
       buttonText: "Watch Now",
-      buttonLink: "https://www.youtube.com/watch?v=Ax_WzL9QkgA",
+      buttonLink: "https://www.youtube.com/watch?v=zXslQyXh8vE",
       video: (
         <div className="w-full max-w-full aspect-video">
           <iframe
             className="w-full h-full"
-            src="https://www.youtube.com/embed/Ax_WzL9QkgA?si=YoCBeHob56Ax8fVU"
+            src="https://www.youtube.com/embed/zXslQyXh8vE?si=Y5zXfA8NL7enyTW"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
@@ -104,17 +105,18 @@ export default function Home() {
       reverse: true,
       variant: "dark",
     },
+    // new video
     {
-      title: "7x My Team",
+      title: "7x Your Team",
       description:
         "Building a winning team: discover the four key employee needs and how owners can create a culture of clarity, resources, and recognition. Empower your team, empower your business.",
       buttonText: "Watch Now",
-      buttonLink: "https://www.youtube.com/watch?v=mBQx8_HQd94",
+      buttonLink: "https://www.youtube.com/watch?v=aJix99BgpKE",
       video: (
         <div className="w-full max-w-full aspect-video">
           <iframe
             className="w-full h-full"
-            src="https://www.youtube.com/embed/mBQx8_HQd94?si=mnKLp1CMBdqliOYh"
+            src="https://www.youtube.com/embed/aJix99BgpKE?si=swAMdQu5W8HzfezO"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
@@ -125,17 +127,18 @@ export default function Home() {
       reverse: false,
       variant: "light",
     },
+    // new video
     {
-      title: "7x My Time",
+      title: "Reverse Engineer Your Profit Goal",
       description:
-        "Time management for owners: discover Daily Value Deliverables (DVDs) - small, consistent actions that compound into significant growth. Focus on what matters, reduce noise, and build leverage to free up your time.",
+        "A fun tool to reverse engineer your profit goal to create a clear, actionable plan.",
       buttonText: "Watch Now",
-      buttonLink: "https://www.youtube.com/watch?v=tkRh7GHYYKI",
+      buttonLink: "https://www.youtube.com/watch?v=hfEWU9WLWzs",
       video: (
         <div className="w-full max-w-full aspect-video">
           <iframe
             className="w-full h-full"
-            src="https://www.youtube.com/embed/tkRh7GHYYKI?si=UWnzeBsBsS8lUkA3"
+            src="https://www.youtube.com/embed/hfEWU9WLWzs?si=chNXIv7c-zaMk9z9"
             title="YouTube video player"
             allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
             referrerPolicy="strict-origin-when-cross-origin"
@@ -160,7 +163,7 @@ export default function Home() {
           </p>
 
           <h2 className="text-slate-800 sm:text-3xl md:text-4xl animate-fade-in-up-delayed">
-            At <span className="text-[#27A65D]">7xyourbusiness.com</span>, we give
+            At <span className="text-[#27A65D]">7xmybusiness.com</span>, we give
             you simple tools and knowledge to create clarity and a written
             strategic plan, so you can make a lot more{" "}
             <span className="text-[#27A65D]">money</span> and achieve the{" "}
