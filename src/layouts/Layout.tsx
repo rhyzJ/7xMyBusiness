@@ -5,6 +5,7 @@ import DefaultFooter from "../components/ui/DefaultFooter";
 import FooterHero from "../components/ui/FooterHero";
 import SignUpModal from "../components/ui/SignUpModal";
 import logo from "../assets/logos/7xlogo-white.png";
+import logoSmall from "../assets/logos/mobile-logo.png";
 
 export default function Layout() {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -23,11 +24,17 @@ export default function Layout() {
           isScrolled ? "shadow-2xl" : ""
         }`}
       >
-        <div className="flex items-center justify-center w-full max-w-7xl mx-auto h-20 sm:h-24">
+        <div className="flex my-3.5 items-center justify-center w-full max-w-7xl mx-auto h-20 sm:h-24 px-4 sm:px-6 lg:px-10">
+          <img
+            src={logoSmall}
+            alt="7x Logo"
+            className="h-20 w-auto cursor-pointer sm:hidden"
+            onClick={() => navigate("/")}
+          />
           <img
             src={logo}
             alt="7x Logo"
-            className="h-24 w-auto cursor-pointer"
+            className="h-24 w-auto cursor-pointer hidden sm:block"
             onClick={() => navigate("/")}
           />
           <MobileNav openSignUp={() => setIsSignUpOpen(true)} />
