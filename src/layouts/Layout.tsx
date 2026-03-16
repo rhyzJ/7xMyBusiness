@@ -49,6 +49,36 @@ export default function Layout() {
         onClose={() => setIsSignUpOpen(false)}
       />
 
+      {isSignUpOpen && (
+        <button
+          type="button"
+          onClick={() => setIsSignUpOpen(false)}
+          aria-label="Close signup modal"
+          style={{
+            position: "fixed",
+            top: "16px",
+            right: "16px",
+            zIndex: 99999,
+            width: "52px",
+            height: "52px",
+            borderRadius: "50%",
+            border: "none",
+            backgroundColor: "#ffffff",
+            color: "#666666",
+            cursor: "pointer",
+            display: "flex",
+            alignItems: "center",
+            justifyContent: "center",
+            boxShadow: "0 4px 12px rgba(0,0,0,0.3)",
+            fontSize: "26px",
+            fontWeight: 500,
+            lineHeight: 1,
+          }}
+        >
+          ×
+        </button>
+      )}
+
       <FooterHero openSignUp={() => setIsSignUpOpen(true)} />
       <DefaultFooter />
     </div>

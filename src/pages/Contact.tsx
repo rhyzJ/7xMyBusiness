@@ -2,7 +2,7 @@ import PageContentWrapper from "../layouts/PageContentWrapper";
 import { Mail, Phone } from "lucide-react";
 
 export default function Contact() {
-  const email = "petrea@connective.co.nz";
+  const email = "petrea@7xyourbusiness.com";
   const phone = "+64 027 757 6000";
   const phoneLink = "+640277576000";
 
@@ -15,7 +15,7 @@ export default function Contact() {
 
         <p className="text-slate-600 !text-xl mb-10 animate-fade-in-up-delayed max-w-2xl mx-auto">
           We're here to help you grow your business. Call or email Petrea to
-          book a coffee or a chat witha {" "}
+          book a coffee or a chat with a {" "}
           <strong className="underline">7x Coach</strong> or just to get a bit more
           information. <br />
           <br />

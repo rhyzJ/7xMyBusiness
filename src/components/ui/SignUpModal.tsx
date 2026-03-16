@@ -4,7 +4,6 @@ import Modal from "@mui/material/Modal";
 import Fade from "@mui/material/Fade";
 import CircularProgress from "@mui/material/CircularProgress";
 import { useEffect, useState } from "react";
-import { X } from "lucide-react";
 
 const style = {
   position: "absolute" as const,
@@ -13,6 +12,7 @@ const style = {
   transform: "translate(-50%, -50%)",
   width: "90vw",
   maxWidth: 800,
+  maxHeight: "100vh",
   bgcolor: "background.paper",
   borderRadius: "8px",
   boxShadow: 24,
@@ -25,7 +25,6 @@ interface SignUpModalProps {
 }
 
 export default function SignUpModal({ isOpen, onClose }: SignUpModalProps) {
-  const [showCloseButton, setShowCloseButton] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
 
   useEffect(() => {
@@ -42,15 +41,12 @@ export default function SignUpModal({ isOpen, onClose }: SignUpModalProps) {
   useEffect(() => {
     if (isOpen) {
       setIsLoading(true);
-      setShowCloseButton(false);
       const timer = setTimeout(() => {
         setIsLoading(false);
-        setShowCloseButton(true);
       }, 800);
       return () => clearTimeout(timer);
     } else {
       setIsLoading(true);
-      setShowCloseButton(false);
     }
   }, [isOpen]);
 
@@ -78,10 +74,28 @@ export default function SignUpModal({ isOpen, onClose }: SignUpModalProps) {
           sx={{
             ...style,
             position: "relative",
+            display: "flex",
+            flexDirection: "column",
+            overflow: "hidden",
+            "@media (max-width: 600px)": {
+              width: "100vw",
+              height: "100vh",
+              maxWidth: "100vw",
+              maxHeight: "100vh",
+              borderRadius: 0,
+            },
           }}
         >
           <div
-            style={{ position: "relative", width: "100%", minHeight: "400px" }}
+            style={{
+              position: "relative",
+              width: "100%",
+              minHeight: "200px",
+              flex: 1,
+              overflowY: "auto",
+              WebkitOverflowScrolling: "touch",
+              padding: "16px 16px 8px",
+            }}
           >
             {isLoading && (
               <div
@@ -95,47 +109,12 @@ export default function SignUpModal({ isOpen, onClose }: SignUpModalProps) {
                   alignItems: "center",
                   justifyContent: "center",
                   backgroundColor: "white",
-                  borderRadius: "8px",
                   zIndex: 1000,
                 }}
               >
                 <CircularProgress sx={{ color: "#27A65D" }} />
               </div>
             )}
-            <button
-              onClick={onClose}
-              style={{
-                position: "absolute",
-                top: "12px",
-                right: "12px",
-                zIndex: 10000,
-                width: "36px",
-                height: "36px",
-                borderRadius: "50%",
-                border: "none",
-                backgroundColor: "white",
-                color: "#666",
-                cursor: "pointer",
-                display: "flex",
-                alignItems: "center",
-                justifyContent: "center",
-                boxShadow: "0 2px 8px rgba(0,0,0,0.15)",
-                transition: "opacity 0.3s ease, all 0.2s ease",
-                opacity: showCloseButton ? 1 : 0,
-                pointerEvents: showCloseButton ? "auto" : "none",
-              }}
-              onMouseEnter={(e) => {
-                e.currentTarget.style.backgroundColor = "#f5f5f5";
-                e.currentTarget.style.boxShadow = "0 4px 12px rgba(0,0,0,0.2)";
-              }}
-              onMouseLeave={(e) => {
-                e.currentTarget.style.backgroundColor = "white";
-                e.currentTarget.style.boxShadow = "0 2px 8px rgba(0,0,0,0.15)";
-              }}
-              aria-label="close"
-            >
-              <X size={18} />
-            </button>
             <div
               className="hs-form-frame"
               data-region="ap1"

@@ -9,39 +9,14 @@ export default function Home() {
   const { openSignUp } = useOutletContext<{ openSignUp: () => void }>();
   const location = useLocation();
 
-  // Open signup modal if navigated from another page with state
   useEffect(() => {
     if (location.state?.openSignUp) {
       openSignUp();
-      // Clear the state to prevent reopening on re-renders
       window.history.replaceState({}, document.title);
     }
   }, [location.state, openSignUp]);
 
   const sections: ContentSectionProps[] = [
-    // new video
-    {
-      title: "Pain, Solution, Result",
-      description:
-        "Learn the core communication framework: pain, solution, result. A simple, powerful method for marketing, selling, and explaining ideas.",
-      buttonText: "Watch Now",
-      buttonLink: "https://www.youtube.com/watch?v=AhMpvNXmvFc",
-      video: (
-        <div className="w-full max-w-full aspect-video">
-          <iframe
-            className="w-full h-full"
-            src="https://www.youtube.com/embed/AhMpvNXmvFc?si=BhprQvGhEdB9Kd15"            
-            title="YouTube video player"
-            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-            referrerPolicy="strict-origin-when-cross-origin"
-            allowFullScreen
-          ></iframe>
-        </div>
-      ),
-      reverse: false,
-      variant: "light",
-    },
-    // new video
     {
       title: "Be the Generalist",
       description: `Generalist mindset for business owners - shareholder thinking, goals, planning, systems. Intentional 1% improvements drive long-term growth.`,
@@ -62,7 +37,27 @@ export default function Home() {
       reverse: true,
       variant: "dark",
     },
-    // new video
+    {
+      title: "Pain, Solution, Result",
+      description:
+        "Learn the core communication framework: pain, solution, result. A simple, powerful method for marketing, selling, and explaining ideas.",
+      buttonText: "Watch Now",
+      buttonLink: "https://www.youtube.com/watch?v=AhMpvNXmvFc",
+      video: (
+        <div className="w-full max-w-full aspect-video">
+          <iframe
+            className="w-full h-full"
+            src="https://www.youtube.com/embed/AhMpvNXmvFc?si=BhprQvGhEdB9Kd15"
+            title="YouTube video player"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerPolicy="strict-origin-when-cross-origin"
+            allowFullScreen
+          ></iframe>
+        </div>
+      ),
+      reverse: false,
+      variant: "light",
+    },
     {
       title: "7x Your Money",
       description:
@@ -81,8 +76,8 @@ export default function Home() {
           ></iframe>
         </div>
       ),
-      reverse: false,
-      variant: "light",
+      reverse: true,
+      variant: "dark",
     },
     {
       title: "7x Your Sales",
@@ -102,10 +97,9 @@ export default function Home() {
           ></iframe>
         </div>
       ),
-      reverse: true,
-      variant: "dark",
+      reverse: false,
+      variant: "light",
     },
-    // new video
     {
       title: "7x Your Team",
       description:
@@ -124,8 +118,8 @@ export default function Home() {
           ></iframe>
         </div>
       ),
-      reverse: false,
-      variant: "light",
+      reverse: true,
+      variant: "dark",
     },
     // new video
     {
@@ -146,8 +140,8 @@ export default function Home() {
           ></iframe>
         </div>
       ),
-      reverse: true,
-      variant: "dark",
+      reverse: false,
+      variant: "light",
     },
   ];
 
@@ -163,7 +157,7 @@ export default function Home() {
           </p>
 
           <h2 className="text-slate-800 sm:text-3xl md:text-4xl animate-fade-in-up-delayed">
-            At <span className="text-[#27A65D]">7xmybusiness.com</span>, we give
+            At <span className="text-[#27A65D]">7xyourbusiness.com</span>, we give
             you simple tools and knowledge to create clarity and a written
             strategic plan, so you can make a lot more{" "}
             <span className="text-[#27A65D]">money</span> and achieve the{" "}
