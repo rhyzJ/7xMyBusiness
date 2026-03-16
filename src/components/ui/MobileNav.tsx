@@ -38,7 +38,7 @@ function MobileNav({ openSignUp }: MobileNavProps) {
   const links: NavLinkItem[] = [
     { name: "Home", url: "/" },
     { name: "Join the 7x community", url: "/", isSignUp: true },
-    { name: "Book a coffee with a 7x Coach", url: "/contact" },
+    { name: "Book a coffee with Penny", url: "/contact" },
     { name: "Contact us", url: "/contact" },
   ];
 
@@ -96,7 +96,7 @@ function MobileNav({ openSignUp }: MobileNavProps) {
                   <button
                     key={link.url}
                     onClick={() => handleLinkClick(link)}
-                    className={`w-full px-6 py-4 rounded-lg text-base font-medium text-white transition-all duration-200 menu-item-anim bg-white/5 hover:bg-[#27A65D]/80 hover:shadow-md text-left`}
+                    className={`w-full px-6 py-4 rounded-lg text-base font-semibold text-white transition-all duration-200 menu-item-anim bg-white/5 hover:bg-[#27A65D]/80 hover:shadow-md text-left`}
                     style={{ animationDelay: `${index * 80}ms` }}
                   >
                     {link.name}
@@ -106,7 +106,7 @@ function MobileNav({ openSignUp }: MobileNavProps) {
                     key={link.url}
                     to={link.url}
                     end
-                    className={`w-full px-6 py-4 rounded-lg text-base font-medium text-white transition-all duration-200 menu-item-anim ${"bg-white/5 hover:bg-[#27A65D]/80 hover:shadow-md"}`}
+                    className={`w-full px-6 py-4 rounded-lg text-base font-semibold text-white transition-all duration-200 menu-item-anim ${"bg-white/5 hover:bg-[#27A65D]/80 hover:shadow-md"}`}
                     style={{ animationDelay: `${index * 80}ms` }}
                     onClick={closeMenu}
                   >
