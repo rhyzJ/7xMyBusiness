@@ -27,7 +27,6 @@ export default function SignUpForm() {
 
       const formContainer = document.getElementById("hubspot-form");
 
-      // Prevent duplicate forms
       if (formContainer && formContainer.children.length === 0) {
         hbspt.forms.create({
           region: "ap1",
@@ -38,13 +37,11 @@ export default function SignUpForm() {
       }
     };
 
-    // If script already exists, just create the form
     if (window.hbspt) {
       createForm();
       return;
     }
 
-    // Otherwise load the script
     const script = document.createElement("script");
     script.src = "https://js-ap1.hsforms.net/forms/embed/v2.js";
     script.async = true;
@@ -55,7 +52,6 @@ export default function SignUpForm() {
 
     document.body.appendChild(script);
 
-    // cleanup on unmount
     return () => {
       const formContainer = document.getElementById("hubspot-form");
 
