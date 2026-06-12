@@ -2,7 +2,7 @@ import PageContentWrapper from "../layouts/PageContentWrapper";
 import { Mail, Phone } from "lucide-react";
 
 export default function Contact() {
-  const email = "petrea@7xyourbusiness.com";
+  const email = "community@7xyourbusines.com";
   const phone = "+64 027 757 6000";
   const phoneLink = "+640277576000";
 
@@ -14,7 +14,7 @@ export default function Contact() {
         </h1>
 
         <p className="text-slate-600 !text-xl mb-10 animate-fade-in-up-delayed max-w-2xl mx-auto">
-          We're here to help you grow your business. Call or email Petrea to
+          We're here to help you grow your business. Call or email us to
           book a coffee or a chat with a {" "}
           <strong className="underline">7x Coach</strong> or just to get a bit more
           information. <br />
@@ -35,7 +35,7 @@ export default function Contact() {
               <Mail className="w-6 h-6 text-[#27A65D]" />
             </div>
 
-            <h3 className="text-slate-700 mb-2">Email Petrea</h3>
+            <h3 className="text-slate-700 mb-2">Email the team</h3>
 
             <p className="text-[#27A65D] sm:text-lg group-hover:underline">
               {email}
