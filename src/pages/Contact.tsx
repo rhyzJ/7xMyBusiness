@@ -56,7 +56,7 @@ export default function Contact() {
               <Phone className="w-6 h-6 text-white" />
             </div>
 
-            <h3 className="relative text-white mb-2">Call Petrea</h3>
+            <h3 className="relative text-white mb-2">Call the team</h3>
 
             <p className="relative text-[#27A65D] sm:text-lg group-hover:underline">
               {phone}
